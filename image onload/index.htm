@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<title>Experiment I</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link re="stylesheet" href="styles/main.css" media="all" />
+		<style>
+			#imageloaded 
+			{
+				display:none;
+				width:200px;
+				height:250px;
+				overflow:hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="loading">
+			<img src="ajax_loader.gif" />
+			<span>Bild wird gespeichert...</span>
+		</div>
+		<div id="imageloaded">
+			<img src="/douglas.png" width="200" height="150" />
+			<button>Bild bearbeiten</button>
+		</div>		
+		<script>
+			function imageLoaded()
+			{
+				if(window.console)
+				{
+				  window.console.log('fertig')
+				} else {
+					window.status = 'fertig';
+				}
+				setTimeout(function(){document.getElementById('imageloaded').style.display = "block";document.getElementById('loading').style.display = "none";if(window.console)
+				{
+				  window.console.log('wird angezeigt')
+				}
+				else {window.status = 'wird angezeigt';}
+				},5000);	
+			}
+			
+			var img = new Image();
+			img.onload = imageLoaded;
+			img.src = "/douglas.png";
+		</script>
+	</body>
+</html>
